@@ -8,6 +8,8 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("home/", views.home, name="home"),
     path("signup/", views.signup, name="signup"),
+    path('users/<int:pk>/', views.UserDetailView.as_view(), name="users_detail"),
+    path('users/<int:pk>/update', views.UserUpdateView.as_view(), name="users_update")
 ]
 
 # urlpatterns というリストに path() 関数を格納します。
@@ -19,3 +21,5 @@ urlpatterns = [
 # name に文字列を指定することで、URLの名称の定義が可能です。これにより、Djangoのあらゆる場所から参照することが可能となります。
 # kwargs は追加の引数を辞書としてビューに渡すことができます。
 # ここでは route と view name を指定しています。
+
+# path()の第一引数の <int:pk> というのが見慣れないですが、これはデータベースの主キー（PK）のことを指します。IDのような固有の値になります。 int とあるので、整数型のPKを示します。
